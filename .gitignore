@@ -1,0 +1,12 @@
+# OS / エディタ
+.DS_Store
+.claude/
+
+# サイトでは使っていない加工前の原本画像（手元にのみ保管）
+images/DSC08280.jpg
+images/代表画像.png
+images/切り抜き色変更.png
+images/TCロゴ.png
+images/アイコン_信頼.png
+images/アイコン_寄り添う.png
+images/アイコン_育てる.png

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜TrustConnect株式会社</title>
+<meta name="description" content="TrustConnect株式会社へのお問い合わせはこちら。通信サービス・人材派遣・採用に関するご相談を承っています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand"><span class="brand-logo">Trust<span>Connect</span></span></a>
+    <button class="nav-toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+    <nav class="nav-menu">
+      <a href="index.html">HOME</a>
+      <a href="about.html">私たちについて</a>
+      <a href="business.html">事業内容</a>
+      <a href="vision.html">私たちの想い</a>
+      <a href="contact.html" class="nav-cta is-active">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="blob blob-1"></span>
+  <div class="container reveal">
+    <span class="en">Contact</span>
+    <h1>お問い合わせ</h1>
+    <p>サービス・人材派遣・採用など、お気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <form class="form reveal" id="contact-form">
+      <div id="form-message" style="display:none; background:var(--blue-50); border:1px solid var(--blue-300); border-radius:12px; padding:18px 20px; margin-bottom:28px; color:var(--blue-900); text-align:center;">
+        お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡いたします。<br><span style="font-size:.82rem; color:var(--text-soft);">（こちらはデモ表示です。実際の送信には別途フォーム連携の設定が必要です）</span>
+      </div>
+
+      <div class="form-row">
+        <label for="type">お問い合わせ種別<span class="req">必須</span></label>
+        <select id="type" name="type" required>
+          <option value="">選択してください</option>
+          <option>通信サービスについて</option>
+          <option>人材派遣について</option>
+          <option>採用について</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+      </div>
+      <div class="form-row">
+        <label for="company">会社名</label>
+        <input type="text" id="company" name="company" placeholder="株式会社○○">
+      </div>
+      <div class="form-row">
+        <label for="email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="form-row">
+        <label for="tel">電話番号</label>
+        <input type="tel" id="tel" name="tel" placeholder="000-0000-0000">
+      </div>
+      <div class="form-row">
+        <label for="message">お問い合わせ内容<span class="req">必須</span></label>
+        <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください。" required></textarea>
+      </div>
+      <div class="center">
+        <button type="submit" class="btn btn-primary btn-arrow">この内容で送信する</button>
+        <p class="form-note">送信いただいた個人情報は、お問い合わせ対応の目的にのみ使用いたします。</p>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-logo">Trust<span>Connect</span></span>
+        <p>信頼でつなぐ、わたしたちの仕事。<br>愛され信頼される企業を目指して、人を想う仕事を続けています。</p>
+      </div>
+      <div class="footer-col">
+        <h4>SITE MAP</h4>
+        <a href="index.html">HOME</a>
+        <a href="about.html">私たちについて</a>
+        <a href="business.html">事業内容</a>
+        <a href="vision.html">私たちの想い</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+      <div class="footer-col">
+        <h4>BUSINESS</h4>
+        <a href="business.html">通信サービス販売事業</a>
+        <a href="business.html">人材派遣事業</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="privacy.html" class="footer-legal-link">プライバシーポリシー</a>
+      © 2026 TrustConnect Inc. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
