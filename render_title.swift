@@ -16,7 +16,13 @@ let accent = NSColor(srgbRed: 0x2b/255.0, green: 0x6c/255.0, blue: 0xb0/255.0, a
 func makeLine(_ parts: [(String, NSColor)]) -> CTLine {
     let s = NSMutableAttributedString()
     for (text, color) in parts {
-        s.append(NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: color]))
+        s.append(NSAttributedString(string: text, attributes: [
+            .font: font,
+            .foregroundColor: color,
+            .strokeColor: color,
+            .strokeWidth: -4.0,            // 太く（塗り＋輪郭）
+            .kern: -fontSize * 0.07,       // 文字間を詰める
+        ]))
     }
     return CTLineCreateWithAttributedString(s)
 }
@@ -29,8 +35,8 @@ func bounds(_ line: CTLine) -> (w: CGFloat, asc: CGFloat, desc: CGFloat) {
     return (CGFloat(w), a, d)
 }
 let b1 = bounds(line1), b2 = bounds(line2)
-let pad: CGFloat = fontSize * 0.16
-let gap: CGFloat = fontSize * 0.34
+let pad: CGFloat = fontSize * 0.10
+let gap: CGFloat = fontSize * 0.26
 let lineH = b1.asc + b1.desc
 let imgW = ceil(max(b1.w, b2.w) + pad * 2)
 let imgH = ceil(lineH * 2 + gap + pad * 2)
