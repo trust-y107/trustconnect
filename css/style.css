@@ -231,10 +231,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero-figure.framed img { border-radius: 22px; box-shadow: var(--shadow-md); }
 .hero h1 {
-  font-family: var(--serif);
+  font-family: 'Klee One', var(--serif);   /* 手書き風であたたかみを */
   font-weight: 600;
-  font-size: clamp(2rem, 1.2rem + 3.2vw, 3.1rem);
-  line-height: 1.5;
+  font-size: clamp(2rem, 1.2rem + 3.2vw, 3.05rem);
+  line-height: 1.65;
   color: var(--ink);
   letter-spacing: .03em;
   margin: 0 0 26px;
