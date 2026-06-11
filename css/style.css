@@ -231,7 +231,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero-figure.framed img { border-radius: 22px; box-shadow: var(--shadow-md); }
 .hero h1 {
-  font-family: 'Yomogi', var(--serif);   /* 素朴な手書き風であたたかみを */
+  font-family: 'Zen Kurenaido', var(--serif);   /* 筆ペン風・少し大人っぽい手書き */
   font-weight: 400;
   font-size: clamp(2.05rem, 1.2rem + 3.4vw, 3.2rem);
   line-height: 1.7;
