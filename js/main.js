@@ -41,6 +41,105 @@
   document.body.insertBefore(layer, document.body.firstChild);
 })();
 
+// マウスに追従するキラキラ（背景の丸と同じ 青・オレンジ・白 の小さな星）
+(function sparkleCursor() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.requestAnimationFrame) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.setAttribute('aria-hidden', 'true');
+  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // 背景ぼかしと同じ系統の色
+  const COLORS = ['rgba(96,164,222,', 'rgba(245,164,55,', 'rgba(255,255,255,'];
+  const stars = [];
+  const MAX = 240;
+
+  function spawn(x, y) {
+    const n = 1 + Math.floor(Math.random() * 2);
+    for (let i = 0; i < n; i++) {
+      stars.push({
+        x: x + (Math.random() - 0.5) * 26,
+        y: y + (Math.random() - 0.5) * 26,
+        vx: (Math.random() - 0.5) * 0.7,
+        vy: (Math.random() - 0.5) * 0.7 - 0.25,
+        size: 3 + Math.random() * 6,
+        rot: Math.random() * Math.PI,
+        vrot: (Math.random() - 0.5) * 0.12,
+        life: 0,
+        ttl: 600 + Math.random() * 550,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        scale: 0.5,
+      });
+    }
+    if (stars.length > MAX) stars.splice(0, stars.length - MAX);
+  }
+
+  function drawStar(s, alpha) {
+    const r = s.size * s.scale;
+    ctx.save();
+    ctx.translate(s.x, s.y);
+    ctx.rotate(s.rot);
+    ctx.beginPath();
+    for (let i = 0; i < 8; i++) {
+      const ang = (i * Math.PI) / 4;
+      const rad = i % 2 === 0 ? r : r * 0.34;
+      const px = Math.cos(ang) * rad;
+      const py = Math.sin(ang) * rad;
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fillStyle = s.color + alpha + ')';
+    ctx.shadowColor = s.color + '0.85)';
+    ctx.shadowBlur = 7;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  let last = 0;
+  function tick(t) {
+    if (!last) last = t;
+    const dt = Math.min(t - last, 48);
+    last = t;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (let i = stars.length - 1; i >= 0; i--) {
+      const s = stars[i];
+      s.life += dt;
+      if (s.life >= s.ttl) { stars.splice(i, 1); continue; }
+      const k = s.life / s.ttl;
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vy += 0.0035 * dt;
+      s.rot += s.vrot;
+      const tw = Math.sin(k * Math.PI);      // 0→1→0 でキラッと点滅
+      s.scale = 0.45 + tw * 0.85;
+      drawStar(s, (tw * 0.9).toFixed(3));
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  let lastSpawn = 0;
+  window.addEventListener('mousemove', (e) => {
+    const now = performance.now();
+    if (now - lastSpawn < 16) return;
+    lastSpawn = now;
+    spawn(e.clientX, e.clientY);
+  }, { passive: true });
+})();
+
 // モバイルメニューの開閉
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.querySelector('.nav-menu');
