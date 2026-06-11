@@ -69,16 +69,35 @@ if ('IntersectionObserver' in window && reveals.length) {
   reveals.forEach(el => el.classList.add('in'));
 }
 
-// お問い合わせフォーム（デモ送信）
+// お問い合わせフォーム（Web3Forms 経由で info@trust-effort.co.jp へ送信）
 const form = document.querySelector('#contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const msg = document.querySelector('#form-message');
-    if (msg) {
-      msg.style.display = 'block';
-      form.reset();
-      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const err = document.querySelector('#form-error');
+    const btn = form.querySelector('button[type=submit]');
+    const label = btn ? btn.textContent : '';
+    if (err) err.style.display = 'none';
+    if (msg) msg.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.textContent = '送信中…'; }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        form.reset();
+        if (msg) { msg.style.display = 'block'; msg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      } else {
+        throw new Error(data.message || 'failed');
+      }
+    } catch (_) {
+      if (err) { err.style.display = 'block'; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = label; }
     }
   });
 }

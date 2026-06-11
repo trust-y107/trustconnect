@@ -38,9 +38,17 @@
 <section class="section">
   <div class="container">
 
-    <form class="form reveal" id="contact-form">
+    <form class="form reveal" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <!-- 送信先：info@trust-effort.co.jp（Web3Forms のアクセスキーで紐付け） -->
+      <input type="hidden" name="access_key" value="00d2d67c-3694-4deb-92d4-d48ce247f1d8">
+      <input type="hidden" name="subject" value="【お問い合わせ】TrustConnect公式サイト">
+      <input type="hidden" name="from_name" value="TrustConnect お問い合わせフォーム">
+      <input type="checkbox" name="botcheck" style="display:none !important;" tabindex="-1" autocomplete="off">
       <div id="form-message" style="display:none; background:var(--blue-50); border:1px solid var(--blue-300); border-radius:12px; padding:18px 20px; margin-bottom:28px; color:var(--blue-900); text-align:center;">
-        お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡いたします。<br><span style="font-size:.82rem; color:var(--text-soft);">（こちらはデモ表示です。実際の送信には別途フォーム連携の設定が必要です）</span>
+        お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡いたします。
+      </div>
+      <div id="form-error" style="display:none; background:#fdecec; border:1px solid #e7b4b4; border-radius:12px; padding:14px 18px; margin-bottom:24px; color:#b23b3b; text-align:center; font-size:.9rem;">
+        送信に失敗しました。お手数ですが、時間をおいて再度お試しください。
       </div>
 
       <div class="form-row">
