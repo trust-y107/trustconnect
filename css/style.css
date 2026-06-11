@@ -240,6 +240,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0 0 26px;
 }
 .hero h1 .accent { color: var(--blue-700); }
+/* 手書きタイトル（えり字・画像） */
+.hero h1.hero-title-img { margin: 0 0 30px; }
+.hero h1.hero-title-img img { display: block; width: 100%; max-width: 610px; height: auto; }
 .hero p.lead {
   font-size: 1.1rem; color: var(--text); max-width: 560px; margin: 0 0 38px;
   /* 日本語を自然な区切りで折り返し、行末の孤立文字を防ぐ */
