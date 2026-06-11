@@ -2,7 +2,7 @@
 (function buildBackgroundBlobs() {
   const BLUE = 'rgba(96,164,222,.86)';
   const TEAL = 'rgba(118,198,178,.80)';
-  const CREAM = 'rgba(246,190,108,.72)';
+  const CREAM = 'rgba(245,164,55,.95)';
   // top%, left%, size(px), color, variant(1-3), duration(s), delay(s)
   const blobs = [
     [2,  80, 460, BLUE,  1, 18, 0],
