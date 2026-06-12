@@ -13,16 +13,26 @@ guard let font = NSFont(name: "ERIJI", size: fontSize) else { print("フォン�
 let ink = NSColor(srgbRed: 0x1a/255.0, green: 0x25/255.0, blue: 0x30/255.0, alpha: 1)
 let accent = NSColor(srgbRed: 0x2b/255.0, green: 0x6c/255.0, blue: 0xb0/255.0, alpha: 1)
 
+let kanaSize = fontSize * 0.84   // ひらがな・カタカナ・約物は少し小さく（漢字を大きく見せる）
+let kernAmt = -fontSize * 0.10   // 文字間をさらに狭く
+
+func isKanji(_ s: Unicode.Scalar) -> Bool {
+    let v = s.value
+    return (v >= 0x4E00 && v <= 0x9FFF) || (v >= 0x3400 && v <= 0x4DBF) || (v >= 0xF900 && v <= 0xFAFF)
+}
+
 func makeLine(_ parts: [(String, NSColor)]) -> CTLine {
     let s = NSMutableAttributedString()
     for (text, color) in parts {
-        s.append(NSAttributedString(string: text, attributes: [
-            .font: font,
-            .foregroundColor: color,
-            .strokeColor: color,
-            .strokeWidth: -4.0,            // 太く（塗り＋輪郭）
-            .kern: -fontSize * 0.07,       // 文字間を詰める
-        ]))
+        for ch in text {
+            let kanji = ch.unicodeScalars.contains(where: isKanji)
+            guard let f = NSFont(name: "ERIJI", size: kanji ? fontSize : kanaSize) else { continue }
+            s.append(NSAttributedString(string: String(ch), attributes: [
+                .font: f,
+                .foregroundColor: color,   // 細く：ストローク（太字化）はかけない
+                .kern: kernAmt,
+            ]))
+        }
     }
     return CTLineCreateWithAttributedString(s)
 }
