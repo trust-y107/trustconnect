@@ -273,6 +273,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid; place-items: center; background: var(--blue-50);
   margin-bottom: 22px;
 }
+.value-num img { height: 34px; width: auto; display: block; }
 .value-card h3 {
   font-family: var(--serif); font-weight: 600; font-size: 1.18rem;
   color: var(--ink); margin: 0 0 12px; line-height: 1.6;
