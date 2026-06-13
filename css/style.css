@@ -230,6 +230,11 @@ ul { margin: 0; padding: 0; list-style: none; }
           mask-image: linear-gradient(to bottom, #000 84%, rgba(0,0,0,0) 100%);
 }
 .hero-figure.framed img { border-radius: 22px; box-shadow: var(--shadow-md); }
+
+/* ヒーローのあしらい（アクセントの星） */
+.hero-decos { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero-decos svg { position: absolute; opacity: .72; filter: drop-shadow(0 2px 5px rgba(29,58,95,.08)); }
+@media (max-width: 760px) { .hero-decos svg:nth-child(n+4) { display: none; } }
 .hero h1 {
   font-family: var(--serif);
   font-weight: 600;
