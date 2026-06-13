@@ -311,9 +311,23 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 7px; height: 7px; border-radius: 50%; background: var(--blue-500);
 }
 
-/* ---------- 背景の飾り星（全ページ共通） ---------- */
+/* ---------- 背景の飾り星（全ページ共通・左右端のみ） ---------- */
 .bg-stars { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
 .bg-stars svg { filter: drop-shadow(0 1px 3px rgba(29,58,95,.05)); }
+/* 余白が狭い画面では文字に重なるため非表示 */
+@media (max-width: 900px) { .bg-stars { display: none; } }
+
+/* ---------- 日本語の自然な改行（孤立文字・不自然な折り返しを防ぐ） ---------- */
+.section-lead, .lead, .page-hero p, .biz-card p, .biz-card li,
+.value-card p, .policy-item p, .message-body p, .story-block p,
+.cta-band p, .legal-intro, .legal-article p, .form-note {
+  line-break: strict;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+/* vision の引用（手書き画像） */
+.quote img { display: block; width: 100%; max-width: 540px; height: auto; margin: 0 auto; }
 
 /* ---------- BUSINESS セクションのあしらい ---------- */
 .biz-section { position: relative; }
