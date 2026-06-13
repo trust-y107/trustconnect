@@ -343,8 +343,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .biz-tag img { height: 18px; width: auto; display: block; }
 .biz-tag-num img { height: 50px; }                 /* 事業内容ページ：番号のみ・大きめ */
 
-/* 事業紹介の本文：行間・段落間を詰める */
-.biz-intro p { line-height: 1.6; margin: 0 0 12px; }
+/* 事業紹介の本文：HOMEのカード本文と同じ詰め具合に揃える */
+.biz-intro p { line-height: 1.85; margin: 0 0 16px; }
 
 /* ---------- ページヘッダー（下層ページ共通） ---------- */
 .page-hero {
