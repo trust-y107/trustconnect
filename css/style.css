@@ -311,6 +311,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 7px; height: 7px; border-radius: 50%; background: var(--blue-500);
 }
 
+/* ---------- BUSINESS セクションのあしらい ---------- */
+.biz-section { position: relative; overflow: hidden; }
+.biz-section > .container { position: relative; z-index: 1; }
+.biz-decos { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.biz-decos .deco-star { position: absolute; opacity: .55; filter: drop-shadow(0 2px 5px rgba(29,58,95,.06)); }
+
+/* タイトル下の飾り罫＋星 */
+.title-deco { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 16px 0 4px; }
+.title-deco i { display: block; width: 46px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--blue-300)); }
+.title-deco i:last-child { background: linear-gradient(90deg, var(--blue-300), transparent); }
+.title-deco .ds { width: 18px; height: 18px; color: var(--accent); }
+
+/* カードの薄い番号ウォーターマーク */
+.biz-card > *:not(.biz-num) { position: relative; z-index: 1; }
+.biz-card .biz-num {
+  position: absolute; right: 26px; bottom: 8px; z-index: 0; pointer-events: none;
+  font-family: var(--serif); font-weight: 700; font-size: 4.8rem; line-height: 1;
+  color: rgba(74, 144, 217, .07);
+}
+
 /* ---------- ページヘッダー（下層ページ共通） ---------- */
 .page-hero {
   position: relative; overflow: hidden;
