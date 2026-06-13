@@ -346,6 +346,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* 事業紹介の本文：HOMEのカード本文と同じ詰め具合に揃える */
 .biz-intro p { line-height: 1.85; margin: 0 0 16px; }
 
+/* 事業紹介とカードの間隔をHOMEと同じに（2セクション間の余白を詰める） */
+.biz-intro-sec { padding-bottom: 0; }
+.biz-cards-sec { padding-top: 0; }
+
 /* ---------- ページヘッダー（下層ページ共通） ---------- */
 .page-hero {
   position: relative; overflow: hidden;
