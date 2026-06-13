@@ -72,6 +72,32 @@
   document.body.appendChild(layer);
 })();
 
+// セクション見出しの下に飾り（罫＋星）を全ページ統一で付与
+(function decorateSectionTitles() {
+  const STAR = 'M0,-10 L2.6,-2.6 L10,0 L2.6,2.6 L0,10 L-2.6,2.6 L-10,0 L-2.6,-2.6 Z';
+  const ns = 'http://www.w3.org/2000/svg';
+  document.querySelectorAll('.section-title').forEach((title) => {
+    const next = title.nextElementSibling;
+    if (next && next.classList.contains('title-deco')) return; // 既にあればスキップ
+    const deco = document.createElement('div');
+    deco.className = 'title-deco';
+    deco.setAttribute('aria-hidden', 'true');
+    const i1 = document.createElement('i');
+    const i2 = document.createElement('i');
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'ds');
+    svg.setAttribute('viewBox', '-10 -10 20 20');
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', STAR);
+    path.setAttribute('fill', 'currentColor');
+    svg.appendChild(path);
+    deco.appendChild(i1);
+    deco.appendChild(svg);
+    deco.appendChild(i2);
+    title.insertAdjacentElement('afterend', deco);
+  });
+})();
+
 // マウスに追従するキラキラ（背景の丸と同じ 青・オレンジ・白 の小さな星）
 (function sparkleCursor() {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
