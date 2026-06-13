@@ -41,6 +41,37 @@
   document.body.insertBefore(layer, document.body.firstChild);
 })();
 
+// 背景の飾り星をページ全体に散らす（全ページ共通・静的）
+(function buildBackgroundStars() {
+  const STAR = 'M0,-10 L2.6,-2.6 L10,0 L2.6,2.6 L0,10 L-2.6,2.6 L-10,0 L-2.6,-2.6 Z';
+  const C = ['#4a90d9', '#4fb3a0', '#f5a623']; // 青・ティール・オレンジ
+  // [top%, left%]（左右の余白を中心に、上から下まで分布）
+  const POS = [
+    [4, 5], [14, 9], [24, 4], [34, 11], [46, 6], [57, 12], [68, 4], [79, 9], [90, 6],
+    [8, 93], [19, 88], [30, 96], [41, 90], [52, 94], [63, 88], [74, 96], [85, 90], [95, 93],
+    [12, 45], [50, 38], [82, 62],
+  ];
+  const ns = 'http://www.w3.org/2000/svg';
+  const layer = document.createElement('div');
+  layer.className = 'bg-stars';
+  layer.setAttribute('aria-hidden', 'true');
+  POS.forEach(([top, left], i) => {
+    const size = 11 + (i % 4) * 4;            // 11,15,19,23
+    const op = (0.3 + (i % 3) * 0.06).toFixed(2);
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '-10 -10 20 20');
+    svg.setAttribute('width', size);
+    svg.setAttribute('height', size);
+    svg.style.cssText = 'position:absolute;top:' + top + '%;left:' + left + '%;opacity:' + op + ';color:' + C[i % 3];
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', STAR);
+    path.setAttribute('fill', 'currentColor');
+    svg.appendChild(path);
+    layer.appendChild(svg);
+  });
+  document.body.appendChild(layer);
+})();
+
 // マウスに追従するキラキラ（背景の丸と同じ 青・オレンジ・白 の小さな星）
 (function sparkleCursor() {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

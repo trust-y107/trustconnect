@@ -311,11 +311,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 7px; height: 7px; border-radius: 50%; background: var(--blue-500);
 }
 
+/* ---------- 背景の飾り星（全ページ共通） ---------- */
+.bg-stars { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.bg-stars svg { filter: drop-shadow(0 1px 3px rgba(29,58,95,.05)); }
+
 /* ---------- BUSINESS セクションのあしらい ---------- */
-.biz-section { position: relative; overflow: hidden; }
+.biz-section { position: relative; }
 .biz-section > .container { position: relative; z-index: 1; }
-.biz-decos { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-.biz-decos .deco-star { position: absolute; opacity: .55; filter: drop-shadow(0 2px 5px rgba(29,58,95,.06)); }
 
 /* タイトル下の飾り罫＋星 */
 .title-deco { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 16px 0 4px; }
