@@ -53,4 +53,4 @@ func render(_ lines: [String], _ out: String) {
 
 render(["愛され、信頼される", "存在であること"], "images/value-title-01.png")
 render(["一人ひとりに寄り添うこと"], "images/value-title-02.png")
-render(["社員も、関わるすべての人も、", "安心して幸せに"], "images/value-title-03.png")
+render(["社員も、関わるすべての", "人も、安心して幸せに"], "images/value-title-03.png")
