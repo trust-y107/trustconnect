@@ -283,7 +283,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-family: var(--serif); font-weight: 600; font-size: 1.18rem;
   color: var(--ink); margin: 0 0 12px; line-height: 1.6;
 }
-.value-card h3 img { display: block; height: auto; }   /* 手書き見出し（画像） */
+.value-card h3 img { display: block; height: auto; max-width: 100%; }   /* 手書き見出し（画像） */
 .value-card p { margin: 0; font-size: .95rem; color: var(--text-soft); }
 
 /* ---------- 事業概要（2カラム） ---------- */
