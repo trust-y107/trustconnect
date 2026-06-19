@@ -411,7 +411,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .policy-icon img { width: 34px; height: 34px; object-fit: contain; display: block; }
 /* 握手アイコンは横長のため、少し大きめに表示してバランスを揃える */
 .policy-icon img[src*="icon-trust"] { width: 46px; height: 46px; }
-.policy-item h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); margin: 0 0 10px; }
+.policy-item h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); margin: 0 0 12px; }
+.policy-item h3 img { display: block; height: auto; max-width: 100%; margin: 0 auto; }   /* 手書き見出し（画像） */
 .policy-item p { font-size: .92rem; color: var(--text-soft); margin: 0; }
 
 /* ---------- 会社概要テーブル ---------- */
