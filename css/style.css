@@ -442,7 +442,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .story-block:nth-of-type(even) .story-media { order: 2; }   /* 偶数項目は画像を右に */
 .story-media {
   border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   background: linear-gradient(150deg, var(--blue-100), #e9f2fb 55%, #eff7f3);
   display: grid; place-items: center;
   color: var(--blue-500); font-size: .82rem; letter-spacing: .08em;
