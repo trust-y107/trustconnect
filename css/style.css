@@ -505,6 +505,29 @@ ul { margin: 0; padding: 0; list-style: none; }
 .contact-info .item .label { font-size: .8rem; letter-spacing: .12em; color: var(--blue-600); font-weight: 600; }
 .contact-info .item .val { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin-top: 8px; }
 
+/* ---------- 活動報告（NEWS） ---------- */
+.news-list { max-width: 900px; margin: 0 auto; }
+.news-item {
+  display: grid; grid-template-columns: 300px 1fr; gap: 34px; align-items: center;
+  padding: 30px 0; border-bottom: 1px solid var(--line);
+}
+.news-item:first-of-type { padding-top: 0; }
+.news-item.no-thumb { grid-template-columns: 1fr; }   /* 写真なしの投稿 */
+.news-thumb {
+  border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow-sm);
+  background: linear-gradient(150deg, var(--blue-100), #e9f2fb 55%, #eff7f3);
+  display: grid; place-items: center; color: var(--blue-500); font-size: .8rem; letter-spacing: .08em;
+}
+.news-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.news-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.news-meta time { font-size: .85rem; color: var(--text-soft); font-weight: 600; letter-spacing: .04em; }
+.news-cat { font-size: .72rem; font-weight: 700; color: #fff; background: var(--blue-500); padding: 3px 11px; border-radius: 999px; letter-spacing: .04em; }
+.news-item h2 { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin: 0 0 10px; line-height: 1.55; }
+.news-item p { margin: 0; font-size: .96rem; color: var(--text); }
+@media (max-width: 720px) {
+  .news-item { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+}
+
 /* ---------- CTA 帯 ---------- */
 .cta-band {
   background: linear-gradient(150deg, var(--blue-700), var(--blue-900));
