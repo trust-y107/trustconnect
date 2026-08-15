@@ -147,7 +147,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ロゴ画像（テキストは読み上げ用に残し、見た目は画像に置き換え） */
 .brand-logo {
   display: inline-block;
-  width: 150px; height: 44px;
+  width: 96px; height: 50px;
   background: url("../images/logo.png") left center / contain no-repeat;
   text-indent: -9999px; overflow: hidden; white-space: nowrap;
   border: 0; padding: 0;
