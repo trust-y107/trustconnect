@@ -708,7 +708,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .income-when { display: block; font-size: .8rem; letter-spacing: .06em; opacity: .9; }
 .income-amount { display: block; font-family: var(--sans); font-weight: 700; font-size: 2.6rem; line-height: 1.1; margin: 6px 0 10px; }
 .income-amount small { font-size: 1rem; font-weight: 600; margin-left: 4px; }
-.income-detail { display: block; font-size: .82rem; line-height: 1.7; opacity: .95; }
+.income-detail { display: block; font-size: .68rem; letter-spacing: -.01em; line-height: 1.6; opacity: .95; }
 
 /* モデル年収 */
 .model-income { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
@@ -727,6 +727,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: var(--shadow-sm); padding: 46px 44px;
 }
+.rec-career-head .section-title { font-size: clamp(1.45rem, 1rem + 1.7vw, 1.95rem); letter-spacing: .01em; }
 .rec-career-head p { margin: 0; color: var(--text-soft); font-size: .96rem; line-height: 1.95; }
 .rec-career-examples { display: grid; gap: 16px; }
 .career-ex {
