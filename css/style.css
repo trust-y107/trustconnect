@@ -593,3 +593,163 @@ ul { margin: 0; padding: 0; list-style: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .profile-table th { width: 130px; }
 }
+
+/* ============================================================
+   採用情報ページ（recruit.html）
+   ============================================================ */
+.center { text-align: center; }
+
+/* 魅力ポイント */
+.rec-points {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 26px; margin-top: 54px;
+}
+.rec-point {
+  position: relative;
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 28px 30px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.rec-point:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.rec-point-num {
+  font-family: var(--sans); font-weight: 700; font-size: 1.5rem;
+  color: var(--blue-300); letter-spacing: .04em;
+}
+.rec-point h3 {
+  font-family: var(--serif); font-weight: 600; font-size: 1.16rem;
+  color: var(--ink); margin: 10px 0 12px; letter-spacing: .03em;
+}
+.rec-point p { margin: 0; font-size: .95rem; color: var(--text-soft); line-height: 1.85; }
+
+/* 募集要項テーブル（定義リスト） */
+.jd {
+  margin: 50px auto 0; max-width: 940px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.jd-row { display: grid; grid-template-columns: 200px 1fr; }
+.jd-row + .jd-row { border-top: 1px solid var(--line); }
+.jd-row dt {
+  font-family: var(--sans); font-weight: 600; font-size: .95rem;
+  color: var(--blue-900); letter-spacing: .04em;
+  padding: 26px 28px; background: var(--blue-50);
+  border-right: 1px solid var(--line);
+}
+.jd-row dd {
+  margin: 0; padding: 26px 30px;
+  color: var(--text); font-size: .97rem; line-height: 1.9;
+}
+.jd-muted { color: var(--text-soft); font-size: .86rem; line-height: 1.8; }
+.jd-sub { font-weight: 600; color: var(--blue-700); margin: 0 0 10px; font-size: .9rem; }
+.jd-note-box { margin-top: 16px; padding: 18px 20px; background: var(--blue-50); border-radius: 12px; }
+.jd-hint { margin: 12px 0 0; font-size: .88rem; color: var(--text-soft); line-height: 1.85; }
+
+/* チップ（シフト例・手当・福利厚生） */
+.jd-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.jd-chips li {
+  font-family: var(--sans); font-size: .86rem; font-weight: 500;
+  color: var(--blue-700); background: #fff;
+  border: 1px solid var(--blue-100); border-radius: 999px;
+  padding: 7px 15px; letter-spacing: .02em;
+}
+.jd-chips.wrap li { color: var(--text); border-color: var(--line); }
+
+/* リスト */
+.jd-list { margin: 14px 0 0; padding: 0; list-style: none; }
+.jd-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: .93rem; line-height: 1.8; }
+.jd-list li::before {
+  content: ""; position: absolute; left: 2px; top: .68em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--blue-300);
+}
+
+/* 1日の流れ */
+.jd-flow { margin: 0; padding: 0; list-style: none; counter-reset: flow; }
+.jd-flow li {
+  position: relative; padding: 0 0 20px 34px; counter-increment: flow;
+  font-size: .95rem; line-height: 1.6;
+}
+.jd-flow li::before {
+  content: counter(flow); position: absolute; left: 0; top: -2px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--blue-500); color: #fff;
+  font-family: var(--sans); font-size: .78rem; font-weight: 700;
+  display: grid; place-items: center;
+}
+.jd-flow li::after {
+  content: ""; position: absolute; left: 11px; top: 24px; bottom: 4px;
+  width: 2px; background: var(--blue-100);
+}
+.jd-flow li:last-child { padding-bottom: 0; }
+.jd-flow li:last-child::after { display: none; }
+
+/* 勤務地 */
+.store-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
+.store {
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  padding: 18px 20px;
+}
+.store h4 { margin: 0 0 8px; font-size: .98rem; color: var(--blue-900); font-weight: 600; }
+.store p { margin: 0; font-size: .86rem; color: var(--text-soft); line-height: 1.7; }
+.store-access { margin-top: 8px !important; color: var(--blue-600) !important; font-size: .82rem !important; }
+
+/* 月収イメージ */
+.income-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+.income-card {
+  background: linear-gradient(160deg, var(--blue-500), var(--blue-700));
+  color: #fff; border-radius: 14px; padding: 22px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.income-when { display: block; font-size: .8rem; letter-spacing: .06em; opacity: .9; }
+.income-amount { display: block; font-family: var(--sans); font-weight: 700; font-size: 2.6rem; line-height: 1.1; margin: 6px 0 10px; }
+.income-amount small { font-size: 1rem; font-weight: 600; margin-left: 4px; }
+.income-detail { display: block; font-size: .82rem; line-height: 1.7; opacity: .95; }
+
+/* モデル年収 */
+.model-income { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.model-item {
+  text-align: center; background: #fff; border: 1px solid var(--blue-100);
+  border-radius: 12px; padding: 18px 12px;
+}
+.model-y { display: block; font-family: var(--sans); font-weight: 700; font-size: 1.7rem; color: var(--blue-700); }
+.model-y small { font-size: .8rem; margin-left: 2px; }
+.model-exp { display: block; font-size: .82rem; color: var(--text-soft); margin-top: 4px; }
+
+/* キャリアアップ */
+.rec-career {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center;
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 46px 44px;
+}
+.rec-career-head p { margin: 0; color: var(--text-soft); font-size: .96rem; line-height: 1.95; }
+.rec-career-examples { display: grid; gap: 16px; }
+.career-ex {
+  background: linear-gradient(160deg, #fff, var(--blue-50));
+  border: 1px solid var(--blue-100); border-radius: 14px; padding: 22px 24px;
+}
+.career-ex-label {
+  display: inline-block; font-family: var(--sans); font-size: .72rem; font-weight: 600;
+  letter-spacing: .12em; color: var(--accent); margin-bottom: 8px;
+}
+.career-ex p { margin: 0; font-size: 1.05rem; color: var(--ink); line-height: 1.6; }
+.career-ex strong { color: var(--blue-700); }
+
+/* レスポンシブ */
+@media (max-width: 860px) {
+  .rec-points { grid-template-columns: 1fr; }
+  .rec-career { grid-template-columns: 1fr; gap: 28px; padding: 34px 26px; }
+}
+@media (max-width: 720px) {
+  .jd-row { grid-template-columns: 1fr; }
+  .jd-row dt { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 22px; }
+  .jd-row dd { padding: 20px 22px; }
+  .store-list { grid-template-columns: 1fr; }
+  .income-cards { grid-template-columns: 1fr; }
+  .model-income { grid-template-columns: 1fr; }
+}
